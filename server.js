@@ -8,8 +8,13 @@ const connectDB = require('./config/db');
 //database 연결하기
 connectDB();
 
+app.get('/', (req, res) => res.send('server running'));
 
-app.get('/',(req,res)=> res.send('server running'))
+//router
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/posts', require('./routes/api/posts'));
+app.use('/api/profile', require('./routes/api/profile'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`)
