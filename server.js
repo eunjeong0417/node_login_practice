@@ -8,6 +8,9 @@ const connectDB = require('./config/db');
 //database 연결하기
 connectDB();
 
+//body-parser
+app.use(express.json({ extended: false }));
+
 app.get('/', (req, res) => res.send('server running'));
 
 //router
